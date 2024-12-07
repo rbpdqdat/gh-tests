@@ -5,14 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-      uses: actions/checkout@v3
+        uses: actions/checkout@v3
       # a "with" keyword may be needed if there are 
       # dependencies to are needed for a specified 
       # "action"
       # a runner might not have the dependencies
       # if it isn't installed
       - name: Install NodeJS
-      uses: actions/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
       - name: Install dependencies
