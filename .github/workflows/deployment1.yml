@@ -5,15 +5,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        uses: actions/checkout@v3
-      - name: Install Dependencies
+      uses: actions/checkout@v3
+      # a "with" keyword may be needed if there are 
+      # dependencies to are needed for a specified 
+      # "action"
+      # a runner might not have the dependencies
+      # if it isn't installed
+      - name: Install NodeJS
+      uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        # npm ci is safer than npm install
         run: npm ci
-      - name: Lint Config
-        run: npm init @eslint/config 
       - name: Lint
         run: npm run lint
       - name: Test code
-        run: npm run test
+        run: npm test
       - name: Build project
         run: npm run build
       - name: Deploy
