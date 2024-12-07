@@ -1,4 +1,4 @@
-name: Deployment Flow 1
+name: Deployment Flow 2
 on: [push]
 jobs:
   lint:
